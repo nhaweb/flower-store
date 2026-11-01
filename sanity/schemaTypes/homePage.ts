@@ -1,0 +1,97 @@
+import { defineField, defineType } from 'sanity'
+
+export const homePage = defineType({
+  name: 'homePage',
+  title: 'Trang chủ',
+  type: 'document',
+  fields: [
+    defineField({ name: 'heroLine1', title: 'Hero dòng 1', type: 'string', initialValue: 'Một chút' }),
+    defineField({ name: 'heroAccent', title: 'Hero chữ nhấn', type: 'string', initialValue: 'nhẹ nhàng' }),
+    defineField({ name: 'heroLine2', title: 'Hero dòng 2', type: 'string', initialValue: 'cho bàn nhà bạn.' }),
+    defineField({
+      name: 'heroSupport',
+      title: 'Câu hỗ trợ hero',
+      type: 'text',
+      rows: 2,
+      initialValue: 'Hoa theo mùa, chọn từng cành và buộc tay từng bó nhỏ, để nhà mình có thêm chút ngoài trời.',
+    }),
+    defineField({
+      name: 'heroImage',
+      title: 'Ảnh hero',
+      type: 'image',
+      options: { hotspot: true },
+    }),
+    defineField({ name: 'shopEyebrow', title: 'Shop eyebrow', type: 'string', initialValue: 'Bộ sưu tập hiện tại' }),
+    defineField({ name: 'shopTitle', title: 'Shop tiêu đề', type: 'string', initialValue: 'Tươi từ vườn' }),
+    defineField({ name: 'storyEyebrow', title: 'Story eyebrow', type: 'string', initialValue: 'Cách xưởng làm' }),
+    defineField({ name: 'storyTitle', title: 'Story tiêu đề', type: 'string', initialValue: 'Cho hoa lên tiếng.' }),
+    defineField({
+      name: 'storyBody',
+      title: 'Story nội dung',
+      type: 'text',
+      rows: 4,
+    }),
+    defineField({ name: 'careEyebrow', title: 'Care eyebrow', type: 'string', initialValue: 'Lời nhắn từ xưởng' }),
+    defineField({ name: 'careTitle', title: 'Care tiêu đề', type: 'string', initialValue: 'Giữ chúng thật xinh.' }),
+    defineField({
+      name: 'occasionsEyebrow',
+      title: 'Dịp eyebrow',
+      type: 'string',
+      initialValue: 'Chọn theo dịp',
+    }),
+    defineField({
+      name: 'occasionsTitle',
+      title: 'Dịp tiêu đề',
+      type: 'string',
+      initialValue: 'Hoa nói thay bạn.',
+    }),
+    defineField({
+      name: 'seasonsEyebrow',
+      title: 'Mùa eyebrow',
+      type: 'string',
+      initialValue: 'Theo mùa',
+    }),
+    defineField({
+      name: 'seasonsTitle',
+      title: 'Mùa tiêu đề',
+      type: 'string',
+      initialValue: 'Mùa nào hoa nấy.',
+    }),
+    defineField({
+      name: 'processEyebrow',
+      title: 'Quy trình eyebrow',
+      type: 'string',
+      initialValue: 'Cách đặt hoa',
+    }),
+    defineField({
+      name: 'processTitle',
+      title: 'Quy trình tiêu đề',
+      type: 'string',
+      initialValue: 'Chọn xong, phần còn lại xưởng lo.',
+    }),
+    defineField({
+      name: 'dictionaryEyebrow',
+      title: 'Từ điển eyebrow',
+      type: 'string',
+      initialValue: 'Từ điển hoa',
+    }),
+    defineField({
+      name: 'dictionaryTitle',
+      title: 'Từ điển tiêu đề',
+      type: 'string',
+      initialValue: 'Vài loài xưởng thương nhất.',
+    }),
+    defineField({
+      name: 'testimonialsEyebrow',
+      title: 'Testimonial eyebrow',
+      type: 'string',
+      initialValue: 'Khách kể lại',
+    }),
+    defineField({
+      name: 'testimonialsTitle',
+      title: 'Testimonial tiêu đề',
+      type: 'string',
+      initialValue: 'Người nhận hoa kể lại.',
+    }),
+  ],
+})

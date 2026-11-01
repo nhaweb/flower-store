@@ -26,6 +26,7 @@
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
+  --radius-card: 2rem;
 }
 
 :root {
@@ -52,9 +53,42 @@
 
 * { @apply border-border outline-ring/40; }
 html { scroll-behavior: smooth; }
-body { @apply bg-background text-foreground; font-family: Arial, sans-serif; }
-.font-serif { font-family: Georgia, 'Times New Roman', serif; }
+body {
+  @apply bg-background text-foreground;
+  font-family: var(--font-sans), 'Manrope', sans-serif;
+}
+.font-serif {
+  font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+}
 button, a { -webkit-tap-highlight-color: transparent; }
+
+/* Browser surfaces themed from the palette */
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+::placeholder {
+  color: var(--muted-foreground);
+  opacity: 1;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+a:focus-visible,
+button:focus-visible,
+[role='button']:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Người dùng tắt chuyển động: hiệu ứng animate-in (tw-animate-css) chạy tức thì */
+@media (prefers-reduced-motion: reduce) {
+  .animate-in {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+}
 
 /* Banner entrance animations */
 @keyframes banner-rise {
@@ -93,5 +127,29 @@ button, a { -webkit-tap-highlight-color: transparent; }
     animation: none;
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Testimonial marquee: hai bộ thẻ giống nhau nằm cạnh nhau, trượt sang trái 50% rồi lặp */
+.marquee {
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 55s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    flex-wrap: wrap;
+    width: auto;
   }
 }
